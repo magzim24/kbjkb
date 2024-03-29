@@ -11,4 +11,6 @@ private:
 public:
 	void TakeCard(Card*);
 	Card* GetMinTrumpCard(string suit_trump);
+	Card* Attack(int);
+	vector<Card*> GetAvailableCardToAttack(vector<string>);
 };

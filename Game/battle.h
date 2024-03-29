@@ -7,12 +7,13 @@ using namespace ::std;
 class Battle {
 private:
 	vector<Action*> actions;
+	vector<string> currentCardValue;
+	bool IsCardValueExists(string);
 public:
-	Player* attacker;
-	Player* defender;
-	Battle(Player*, Player*);
+	Battle();
 	bool IsCardsRepulsed();
-	void AttackCard(int , Card*); // index_card, card 
-	void DefenseCard(int index_card, Card* card);
-	void TossCard();
+	int AmountOfActions();
+	void AddValueToCardValueVector(string);
+	vector<string> GetCurrentCardValue();
+	void AddAction(Action*);
 };

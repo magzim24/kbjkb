@@ -1,8 +1,9 @@
 #pragma once
-#include "card.h"
 #include "player.h"
+#include "card.h"
 using namespace std;
 
+class Player;
 class Action {
 public:
 	Action(Player*, Player*, Card*);

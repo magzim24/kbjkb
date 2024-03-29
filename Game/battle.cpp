@@ -1,3 +1,4 @@
+#include <algorithm>
 #include "battle.h"
 #include "player.h"
 #include "card.h"
@@ -11,13 +12,28 @@ bool Battle::IsCardsRepulsed() {
 	}
 	return true;
 }
-Battle::Battle(Player* attacker, Player* defender) {
-	this->attacker = attacker;
-	this->defender = defender;
+Battle::Battle() {
+	this->currentCardValue = vector<string>();
 }
-void Battle::AttackCard(int index_card, Card* card) {
-
+int Battle::AmountOfActions() {
+	return this->actions.end() - this->actions.begin();
 }
-void Battle::DefenseCard(int index_card, Card* card) {
-
+bool Battle::IsCardValueExists(string value) {
+	if (find(this->currentCardValue.begin(), 
+			 this->currentCardValue.end(), value) 
+		!= this->currentCardValue.end()) {
+		return true;
+	}
+	return false;
+}
+void Battle::AddValueToCardValueVector(string value) {
+	if (!IsCardValueExists(value)) {
+		this->currentCardValue.push_back(value);
+	}
+}
+vector<string> Battle::GetCurrentCardValue() {
+	return currentCardValue;
+}
+void Battle::AddAction(Action* action) {
+	this->actions.push_back(action);
 }

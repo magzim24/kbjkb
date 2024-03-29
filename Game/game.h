@@ -13,8 +13,8 @@ class Card;
 class Game {
 private:
 	int amount_players;
+	
 	vector<Player*> players;
-	Battle* battle; 
 	vector<Card*> cards_on_desk;
 	GameDeck* deck; // колода
 	Player* current_fighting_player;
@@ -23,9 +23,10 @@ private:
 	void ClearGameDeskOfCards();
 	void DistributionCards(Player*);
 	void SetFirstAttackingPlayer();
-	void MoveByPlayers(int, int&);
+	void MoveByPlayers();
 public:
 	static const map<string, int> value_level;
+	const int MAX_CARDS_TO_REPULSE = 6;
 	Game(int amount_players);
 	void GameStart();
 };

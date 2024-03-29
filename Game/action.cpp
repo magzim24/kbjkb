@@ -6,6 +6,7 @@
 
 Action::Action(Player* attacker, Player* defender, Card* attacker_card) {
 	this->attacker_card = attacker_card;
+	this->defending_card = nullptr;
 }
 bool Action::IsRepulsed() {
 	if (Game::value_level.at(this->defending_card->value) >= Game::value_level.at(this->attacker_card->value) &&
