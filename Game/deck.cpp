@@ -27,7 +27,7 @@ void GameDeck::FillSetCards(vector<Card*>& set_cards) {
     string valuesCards[9] = {
         "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"
     };
-    for (int j = 0; j < 3; j++) {
+    for (int j = 0; j < 4; j++) {
         for (string i : valuesCards) {
             Card* card = new Card(Card::suit_array[j], i);
             set_cards.push_back(card);
@@ -36,12 +36,19 @@ void GameDeck::FillSetCards(vector<Card*>& set_cards) {
     
 }
 Card* GameDeck::GetCard() {
-    Card* card = this->deck.top();
-    this->deck.pop();
-    return card ;
+    if (!this->deck.empty())
+    {
+        Card* card = this->deck.top();
+        this->deck.pop();
+        return card;
+    }
+    else return nullptr;
 }
 void GameDeck::SetTrumpCard() {
     Card* card = this->deck.top();
     this->deck.pop();
     this->trump_card = card;
+}
+int GameDeck::GetLengthStack() {
+    return this->deck.size();
 }

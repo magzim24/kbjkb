@@ -18,4 +18,5 @@ public:
 	Card* GetCard();
 	void GenerateRandomStack();
 	void SetTrumpCard();
+	int GetLengthStack();
 };

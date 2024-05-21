@@ -2,38 +2,43 @@
 #include "battle.h"
 #include "player.h"
 #include "card.h"
+#include "action.h"
 using namespace ::std;
 
-bool Battle::IsCardsRepulsed() {
+bool Battle::IsCardsRepulsed(Card* trumpCard) {
 	for (Action* action : this->actions) {
-		if (!(action->IsRepulsed())) {
+		if (!(action->IsRepulsed(trumpCard))) {
 			return false;
 		}
 	}
 	return true;
 }
 Battle::Battle() {
-	this->currentCardValue = vector<string>();
+	this->currentCardsOnDesk = vector<Card*>();
 }
 int Battle::AmountOfActions() {
 	return this->actions.end() - this->actions.begin();
 }
-bool Battle::IsCardValueExists(string value) {
-	if (find(this->currentCardValue.begin(), 
-			 this->currentCardValue.end(), value) 
-		!= this->currentCardValue.end()) {
+bool Battle::IsCardValueExists(Card* card) {
+	if (find(this->currentCardsOnDesk.begin(), 
+			 this->currentCardsOnDesk.end(), card)
+		!= this->currentCardsOnDesk.end()) {
 		return true;
 	}
 	return false;
 }
-void Battle::AddValueToCardValueVector(string value) {
-	if (!IsCardValueExists(value)) {
-		this->currentCardValue.push_back(value);
+void Battle::AddValueToCardValueVector(Card* card) {
+	if (!IsCardValueExists(card)) {
+		this->currentCardsOnDesk.push_back(card);
 	}
 }
-vector<string> Battle::GetCurrentCardValue() {
-	return currentCardValue;
+vector<Card*> Battle::GetCurrentCardsOnDesk() {
+	return this->currentCardsOnDesk;
 }
+
 void Battle::AddAction(Action* action) {
 	this->actions.push_back(action);
+}
+const vector<Action*>& Battle::GetAllActionsOfBattle() {
+	return actions;
 }

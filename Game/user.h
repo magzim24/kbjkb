@@ -7,6 +7,8 @@ using namespace ::std;
 
 class User: public Player{
 public:
+	
 	User();
-
+	void setName();
+	//virtual string getTypeOfPlayer() override;
 };

@@ -130,6 +130,7 @@
     <ClInclude Include="action.h" />
     <ClInclude Include="battle.h" />
     <ClInclude Include="bot.h" />
+    <ClInclude Include="CardsOnDesk.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="deck.h" />
     <ClInclude Include="card.h" />
@@ -141,6 +142,7 @@
     <ClCompile Include="battle.cpp" />
     <ClCompile Include="bot.cpp" />
     <ClCompile Include="card.cpp" />
+    <ClCompile Include="CardsOnDesk.cpp" />
     <ClCompile Include="deck.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />

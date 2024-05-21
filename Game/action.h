@@ -8,7 +8,9 @@ class Action {
 public:
 	Action(Player*, Player*, Card*);
 	void SetDefendingCard(Card*);
-	bool IsRepulsed();
+	bool IsRepulsed(Card*);
+	Card* GetDefendingCard();
+	Card* GetAttackingCard();
 private:
 	Card* attacker_card;
 	Card* defending_card;
